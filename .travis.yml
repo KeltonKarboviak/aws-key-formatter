@@ -1,0 +1,23 @@
+language: python
+python:
+  - '2.7'
+  - '3.6'
+  - '3.7'
+  # - '3.8'
+
+install:
+  - pip install -U pip pipenv
+  - pipenv install --dev --skip-lock
+
+script: tox
+
+deploy:
+  provider: pypi
+  distributions: sdist bdist_wheel
+  user: KeltonKarboviak
+  password:
+    secure: PLEASE_REPLACE_ME
+  on:
+    tags: true
+    repo: KeltonKarboviak/aws-key-formatter
+    python: 3.7
