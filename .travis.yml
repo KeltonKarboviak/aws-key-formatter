@@ -1,22 +1,18 @@
 language: python
 python:
-  - '2.7'
-  - '3.6'
-  - '3.7'
-  # - '3.8'
-
+- '2.7'
+- '3.6'
+- '3.7'
 install:
-  - pip install -U pip pipenv
-  - pipenv install --dev --skip-lock
-
+- pip install -U pip pipenv
+- pipenv install --dev --skip-lock
 script: tox
-
 deploy:
   provider: pypi
   distributions: sdist bdist_wheel
-  user: KeltonKarboviak
+  user: '@token'
   password:
-    secure: PLEASE_REPLACE_ME
+    secure: szWV4Kozc8ethPY6rzH/ttZFzjsSvEaNF3KZX/y1DhaWRnCCuOJzCnQ611Coz0ryQ0VeVywN1e6lypP18/4jrRnUJ+87RcAQaU3dj5bDTpgO066LBcn6DldhXAzVs1Z3lm1jpWcfvCEngSaWucTMsLcxF+aKKZBikEo0mncGxzVCDD4iaOY5FLWXWJDDdh/BShIBRK/aulnY6M02X9uydY0TuLAdVIqmkJnjv99xsT2ZDa5q5//x1fpU6wUJmMJXG6EhFwn+VBXCFIlhv+8l4odVx7llerOxBpMhhva2Xx1OZFM4rvCmZPDFtR/Ej9m6l8xsPJL38bkQ8X0/fwaBCiLRStIE0omdy9ZPcK9YvCWntppJeHFftuDrbfilQcvGJW3TMvHqMi32C6Pt1JDZ1rKh1kkCztwP1o1YUTFUgrLguLnrU1GMVPv8L+4guQzwhqD4VoNUe574mpcVRfjlgjpo+00vNN+XKxMFdsO5xnPl+jRya/cCQb6aiFIFyKpFUqTnPa12VjeDGvAzKhpXDWt5/gbwyK5L8QBgOALje16PfKzYmqKTzKaMvCSofrD1SiaNxvqlRDzcNx5xu2VFi77tbMeskcVZXY8pjoZ2MEtl7w2DHZYw5qCCrxn7/4vCt1rxnizMXrCt2ZdpXmY3JDExwHqYvza7qAIZECcSsoU=
   on:
     tags: true
     repo: KeltonKarboviak/aws-key-formatter
