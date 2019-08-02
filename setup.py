@@ -30,7 +30,7 @@ def read(filename):
 
 long_description = read('README.md')
 changelog = read('CHANGELOG.md')
-license_terms = read('LICENSE')
+license_terms = read('LICENSE.md')
 
 
 about = {}
