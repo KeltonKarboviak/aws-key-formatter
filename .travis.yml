@@ -1,8 +1,10 @@
+dist: xenial   # required for Python >= 3.7
 language: python
 python:
 - '2.7'
 - '3.6'
 - '3.7'
+- '3.8-dev'
 install:
 - pip install -U pip pipenv
 - pipenv install --dev --skip-lock
