@@ -12,6 +12,54 @@ Code Quality/CI:
 
 [![Build Status][travis_img]][travis_ref]
 
+## Overview
+
+This CLI will take your AWS credentials and output them in various formats.
+
+The initial use case is for displaying your AWS credentials for use as the
+`Authorization` parameter in several AWS Redshift commands.
+
+See [Use Cases](#use-cases) for all possible output formats.
+
+## Installation
+
+`aws-key-formatter` can be installed by running:
+
+```bash
+pip install aws-key-formatter
+```
+
+It requires Python 3.6+ to run.
+
+You can, also, install via [`pipx`](https://pipxproject.github.io/pipx/):
+
+```bash
+pipx install aws-key-formatter
+```
+
+## Usage
+
+### Redshift
+
+To use your AWS credentials as the `Authorization` parameter in a Redshift
+command (See [the Redshift docs](https://docs.aws.amazon.com/redshift/latest/dg/copy-parameters-authorization.html#copy-access-key-id)):
+
+```bash
+$ aws-key-formatter
+ACCESS_KEY_ID '<access-key-id>'
+SECRET_ACCESS_KEY '<secret-access-key>'
+
+# If you want the session token included as well
+$ aws-key-formatter --token
+ACCESS_KEY_ID '<access-key-id>'
+SECRET_ACCESS_KEY '<secret-access-key>'
+SESSION_TOKEN '<temporary-token>'
+```
+
+## Contributing
+
+<!-- TODO: add some contributing guidelines -->
+
 <!-- References -->
 
 [downloads_img]: https://pepy.tech/badge/aws-key-formatter/month
