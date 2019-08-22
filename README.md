@@ -45,15 +45,31 @@ To use your AWS credentials as the `Authorization` parameter in a Redshift
 command (See [the Redshift docs](https://docs.aws.amazon.com/redshift/latest/dg/copy-parameters-authorization.html#copy-access-key-id)):
 
 ```bash
-$ aws-key-formatter
+$ aws-key-formatter redshift
 ACCESS_KEY_ID '<access-key-id>'
 SECRET_ACCESS_KEY '<secret-access-key>'
 
 # If you want the session token included as well
-$ aws-key-formatter --token
+$ aws-key-formatter redshift --token
 ACCESS_KEY_ID '<access-key-id>'
 SECRET_ACCESS_KEY '<secret-access-key>'
 SESSION_TOKEN '<temporary-token>'
+```
+
+### Environment Variables
+
+To use your AWS credentials as [environment variables](https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-envvars.html):
+
+```bash
+$ aws-key-formatter env
+AWS_ACCESS_KEY_ID=<access-key-id>
+AWS_SECRET_ACCESS_KEY=<secret-access-key>
+
+# If you want the session token included as well
+$ aws-key-formatter env --token
+ACCESS_KEY_ID=<access-key-id>
+SECRET_ACCESS_KEY=<secret-access-key>
+SESSION_TOKEN=<temporary-token>
 ```
 
 ## Contributing
