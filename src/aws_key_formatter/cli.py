@@ -17,7 +17,8 @@ def main(formatter: str, profile: str, token: bool):
     """Console script for aws_key_formatter."""
     # TODO: Have the aws_key_formatter function return the string,
     # then have this function do the `click.echo` to output it.
-    aws_key_formatter.main(formatter, profile, token)
+    formatted_str = aws_key_formatter.main(formatter, profile, token)
+    click.echo(formatted_str)
 
     return 0
 

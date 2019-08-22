@@ -49,9 +49,7 @@ def main(formatter_type: str, aws_profile: str, include_token: bool):
     }
 
     formatter = formatters.get(formatter_type)
-    formatted_str = formatter(creds, include_token)
-
-    print(formatted_str)
+    return formatter(creds, include_token)
 
 
 if __name__ == '__main__':
