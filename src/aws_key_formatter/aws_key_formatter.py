@@ -8,7 +8,7 @@ import textwrap
 import boto3
 
 
-def _format_credentials(creds, include_token: bool):
+def _format_redshift_credentials(creds, include_token: bool) -> str:
     formatted_str = textwrap.dedent(
         f"""\
         ACCESS_KEY_ID '{creds.access_key}'
@@ -20,15 +20,24 @@ def _format_credentials(creds, include_token: bool):
     return formatted_str
 
 
+def _get_credentials_for_profile(aws_profile: str):
+    session = boto3.Session(profile_name=aws_profile)
+    return _get_creds_from_session(session)
+
+
 def _get_creds_from_session(session):
     return session.get_credentials().get_frozen_credentials()
 
 
-def main(aws_profile: str, include_token: bool):
-    session = boto3.Session(profile_name=aws_profile)
-    creds = _get_creds_from_session(session)
+def main(formatter_type: str, aws_profile: str, include_token: bool):
+    creds = _get_credentials_for_profile(aws_profile)
+    formatters = {
+        'redshift': _format_redshift_credentials,
+        'env': _format_env_credentials,
+    }
 
-    formatted_str = _format_credentials(creds, include_token)
+    formatter = formatters.get(formatter_type)
+    formatted_str = formatter(creds, include_token)
 
     print(formatted_str)
 
