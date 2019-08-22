@@ -15,8 +15,6 @@ from .__version__ import __version__
 @click.option('--token/--no-token', ' -t/', default=False, show_default=True, help='Include AWS Session Token?')
 def main(formatter: str, profile: str, token: bool):
     """Console script for aws_key_formatter."""
-    # TODO: Have the aws_key_formatter function return the string,
-    # then have this function do the `click.echo` to output it.
     formatted_str = aws_key_formatter.main(formatter, profile, token)
     click.echo(formatted_str)
 
