@@ -56,6 +56,22 @@ SECRET_ACCESS_KEY '<secret-access-key>'
 SESSION_TOKEN '<temporary-token>'
 ```
 
+### Environment Variables
+
+To use your AWS credentials as [environment variables](https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-envvars.html):
+
+```bash
+$ aws-key-formatter env
+AWS_ACCESS_KEY_ID=<access-key-id>
+AWS_SECRET_ACCESS_KEY=<secret-access-key>
+
+# If you want the session token included as well
+$ aws-key-formatter env --token
+ACCESS_KEY_ID=<access-key-id>
+SECRET_ACCESS_KEY=<secret-access-key>
+SESSION_TOKEN=<temporary-token>
+```
+
 ## Contributing
 
 <!-- TODO: add some contributing guidelines -->

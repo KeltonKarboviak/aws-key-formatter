@@ -20,6 +20,18 @@ def _format_redshift_credentials(creds, include_token: bool) -> str:
     return formatted_str
 
 
+def _format_env_credentials(creds, include_token: bool) -> str:
+    formatted_str = textwrap.dedent(
+        f"""\
+        ACCESS_KEY_ID={creds.access_key}
+        SECRET_ACCESS_KEY={creds.secret_key}
+        {f"SESSION_TOKEN={creds.token}" if include_token else ""}
+        """
+    ).strip()
+
+    return formatted_str
+
+
 def _get_credentials_for_profile(aws_profile: str):
     session = boto3.Session(profile_name=aws_profile)
     return _get_creds_from_session(session)
