@@ -17,6 +17,7 @@ tox = "*"
 tox-pyenv = "*"
 tox-travis = "*"
 twine = "*"
+pre-commit = "*"
 
 [requires]
 python_version = "3.7"
