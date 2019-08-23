@@ -23,9 +23,9 @@ def _format_redshift_credentials(creds, include_token: bool) -> str:
 def _format_env_credentials(creds, include_token: bool) -> str:
     formatted_str = textwrap.dedent(
         f"""\
-        ACCESS_KEY_ID={creds.access_key}
-        SECRET_ACCESS_KEY={creds.secret_key}
-        {f"SESSION_TOKEN={creds.token}" if include_token else ""}
+        AWS_ACCESS_KEY_ID={creds.access_key}
+        AWS_SECRET_ACCESS_KEY={creds.secret_key}
+        {f"AWS_SESSION_TOKEN={creds.token}" if include_token else ""}
         """
     ).strip()
 
