@@ -44,21 +44,21 @@ def _get_creds_from_session(session):
 def main(formatter_type: str, aws_profile: str, include_token: bool):
     creds = _get_credentials_for_profile(aws_profile)
     formatters = {
-        'redshift': _format_redshift_credentials,
-        'env': _format_env_credentials,
+        "redshift": _format_redshift_credentials,
+        "env": _format_env_credentials,
     }
 
     formatter = formatters.get(formatter_type)
     return formatter(creds, include_token)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument(
-        '--profile', '-p', default='default', help='AWS CLI Profile name'
+        "--profile", "-p", default="default", help="AWS CLI Profile name"
     )
     parser.add_argument(
-        '--include_token', '-t', action='store_true', help='Include AWS Session Token?'
+        "--include_token", "-t", action="store_true", help="Include AWS Session Token?"
     )
 
     args = parser.parse_args()
