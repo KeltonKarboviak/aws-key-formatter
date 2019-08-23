@@ -93,5 +93,5 @@ SESSION_TOKEN=<temporary-token>
 [travis_img]: https://travis-ci.org/KeltonKarboviak/aws-key-formatter.svg?branch=master
 [travis_ref]: https://travis-ci.org/KeltonKarboviak/aws-key-formatter
 
-[version_img]: https://img.shields.io/static/v1.svg?label=aws-key-formatter&message=v0.1.0&color=blue
+[version_img]: https://img.shields.io/static/v1.svg?label=aws-key-formatter&message=v0.2.0&color=blue
 [version_ref]: https://pypi.org/project/aws-key-formatter/
